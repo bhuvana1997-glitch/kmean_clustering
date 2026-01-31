@@ -1,53 +1,61 @@
-*Project Overview
-This project demonstrates the implementation of the K-Means clustering algorithm on a synthetic dataset. The goal is to generate data, determine the optimal number of clusters using evaluation techniques, apply K-Means clustering, and visualize the results.
-The project uses Scikit-learn for data generation and clustering, along with Matplotlib for visualization.
-*Objectives
-Generate a synthetic dataset with multiple clusters
-Apply K-Means clustering using K-Means++ initialization
-Identify the optimal number of clusters
-Evaluate clustering performance
-Visualize clustering results
-*Technologies Used
+1. Project Title
+Implementing and Analyzing the K-Means Clustering Algorithm from Scratch Using Python
+2. Objective
+The objective of this project is to implement the K-Means clustering algorithm from scratch using NumPy, understand its internal working, determine the optimal number of clusters using the Elbow Method, and evaluate clustering performance using the Silhouette Score. The results are also compared with Scikit-learn’s K-Means implementation.
+3. Tools and Technologies Used
 Python
 NumPy
 Matplotlib
-Scikit-learn
-*Dataset Generation
-A synthetic dataset is created using sklearn.datasets.make_blobs with the following characteristics:
-Number of samples: 500
-Number of clusters: 4
-Features: 2
-Random state: 42 (for reproducibility)
-This ensures clear cluster separation and meaningful evaluation.
-* K-Means Clustering
-K-Means is an unsupervised learning algorithm that groups data points into K clusters by minimizing the within-cluster sum of squares (Inertia).
-K-Means++ initialization is used to:
-Select better initial centroids
-Improve convergence speed
-Reduce the chances of poor clustering
-* Determining the Optimal Number of Clusters
-1. Elbow Method
-Calculates Inertia for different values of K (2 to 8)
-Plots K vs Inertia
-The “elbow point” indicates an optimal balance between cluster count and compactness
-2. Silhouette Analysis
-Measures how well data points fit within their assigned clusters
-Silhouette score ranges from -1 to 1
-A higher score indicates better-defined clusters
-The value of K with the highest silhouette score is selected as optimal
-* Final Model & Evaluation
-K-Means is executed using the optimal K
-The final Silhouette Score is calculated to evaluate clustering quality
-Higher silhouette score confirms better clustering performance
-*Visualizations
-Two key plots are generated:
-Elbow Plot – Shows inertia values for different cluster counts
-Cluster Scatter Plot – Displays final clustered data points with centroids
-These visualizations help interpret clustering behavior and validate results.
-*Conclusion
-This project successfully demonstrates:
-Synthetic data generation
-Optimal cluster selection using evaluation metrics
-Effective clustering using K-Means++
-Visual analysis of clustering results
-The approach can be extended to real-world datasets for exploratory data analysis and segmentation tasks.
+Scikit-learn (only for comparison and evaluation)
+4. Dataset Description
+A synthetic dataset is generated using NumPy.
+The dataset contains multiple data points with two numerical features and is designed to form clearly separable clusters for effective clustering analysis.
+5. K-Means Algorithm Implementation (From Scratch)
+The K-Means algorithm is implemented manually using NumPy without relying on machine learning libraries.
+Steps followed:
+Random initialization of centroids
+Assignment of data points to the nearest centroid using Euclidean distance
+Updating centroids by computing the mean of assigned points
+Repeating steps until convergence
+This implementation provides a clear understanding of how K-Means works internally.
+6. Elbow Method for Optimal K Selection
+The Elbow Method is used to identify the optimal number of clusters.
+Inertia is calculated for different values of K
+A graph of K vs Inertia is plotted
+The point where the reduction in inertia slows down significantly is chosen as the optimal K
+Result:
+Based on the elbow graph, K = 3 is selected as the optimal number of clusters because it shows a clear bend, indicating diminishing returns beyond this point.
+7. Cluster Characteristics Analysis
+After clustering with K = 3, the characteristics of each cluster are analyzed.
+Mean feature values are calculated for each cluster
+Each cluster shows distinct mean values
+This confirms that the algorithm successfully grouped similar data points together
+The clusters are well separated, indicating effective clustering.
+8. Silhouette Score Evaluation
+The Silhouette Score is used to measure the quality of clustering.
+Scores Obtained:
+Scratch Implementation: Calculated using a manually implemented silhouette score
+Scikit-learn Implementation: Calculated using sklearn.metrics.silhouette_score
+Comparison and Analysis:
+The silhouette scores from both implementations are very close.
+Minor differences occur due to:
+Random centroid initialization
+Optimization techniques used in Scikit-learn
+Overall, the scratch implementation performs comparably to Scikit-learn, validating the correctness of the algorithm.
+9. Results and Visualization
+Elbow Method graph for optimal K selection
+Scatter plot showing clustered data points
+Centroids marked clearly
+Printed text outputs for:
+Optimal K reasoning
+Cluster characteristics
+Silhouette score comparison
+10. Conclusion
+This project successfully demonstrates the implementation of the K-Means clustering algorithm from scratch.
+The Elbow Method and Silhouette Score confirm that the chosen number of clusters is optimal.
+The close similarity between scratch and Scikit-learn results shows that the implementation is accurate and effective.
+11. Future Scope
+Apply the algorithm to real-world datasets
+Extend to higher-dimensional data
+Improve initialization using K-Means++
+Compare with other clustering algorithms
