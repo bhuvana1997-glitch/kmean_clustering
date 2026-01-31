@@ -1,27 +1,48 @@
-1.Project Overview
-This project demonstrates the implementation of the K-Means clustering algorithm from scratch using Python and NumPy. The goal is to understand how K-Means works internally without using any built-in machine learning libraries such as scikit-learn.
-The project includes data generation, cluster assignment, centroid updates, convergence checking, evaluation using inertia, and visualization of final clusters.
+1.Project Description
+This project focuses on implementing the K-Means clustering algorithm entirely from scratch using NumPy, without relying on machine learning libraries for the core algorithm. The objective is to understand the internal working of K-Means, including centroid initialization, iterative optimization, convergence behavior, and performance evaluation.
+Synthetic data is generated using sklearn.datasets.make_blobs, and the performance of the scratch implementation is evaluated and compared with Scikit-learn’s KMeans using standard clustering metrics.
 2.Objectives
-Implement K-Means clustering from basic principles
-Understand iterative optimization (E-step and M-step)
-Evaluate clustering performance using inertia (WCSS)
-Visualize clusters and centroids
+Implement K-Means clustering from first principles
+Understand E-step (cluster assignment) and M-step (centroid update)
+Analyze convergence using centroid movement tolerance
+Evaluate clustering quality using Inertia (WCSS) and Silhouette Score
+Compare scratch implementation with Scikit-learn KMeans
+Visualize clustering results in 2D
 3.Technologies Used
 Python
-NumPy
-Matplotlib
-4.Algorithm Steps
-Initialize cluster centroids randomly
-Assign each data point to the nearest centroid (E-step)
-Update centroids as the mean of assigned points (M-step)
-Repeat until centroids do not change or max iterations reached
-Evaluate clustering using inertia
-Visualize final clusters
-5.Evaluation Metric
-Inertia (WCSS): Measures the sum of squared distances between data points and their cluster centroids.
-Lower inertia indicates better clustering.
-6.Output
-Printed final centroid values
-Inertia score
-Scatter plot showing clustered data points and centroids
+NumPy (core K-Means implementation)
+Matplotlib (visualization)
+Scikit-learn (data generation, evaluation, and comparison)
+4.Project Structure
+Copy code
 
+KMeans_From_Scratch/
+│
+├── kmeans_from_scratch.py
+├── README.md
+5. Methodology
+1. Data Generation
+Synthetic dataset created using make_blobs
+300 samples with 3 cluster centers
+Ensures clear cluster separation for evaluation
+2. K-Means from Scratch
+Centroids initialized randomly
+E-step: Assign each data point to the nearest centroid
+M-step: Update centroids as the mean of assigned points
+Iterations continue until:
+Centroid movement is below a tolerance value, or
+Maximum iterations are reached
+3. Evaluation Metrics
+Inertia (WCSS): Measures compactness of clusters
+Silhouette Score: Measures cluster separation and cohesion
+4. Comparison
+Results from scratch implementation are compared with:
+Scikit-learn’s KMeans
+Both inertia and silhouette scores are reported
+6.Output
+Final centroid coordinates
+Inertia (WCSS) values
+Silhouette scores
+2D scatter plot showing:
+Clustered data points
+Final centroids
